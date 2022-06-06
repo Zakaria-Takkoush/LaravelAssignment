@@ -23,12 +23,24 @@ class MyController extends Controller{
     }
 
     public function getText(){
-        $jsonString =`{"attachments":[{"fallback":"What did the shy pebble wish for? That she was a little boulder.","footer":"<https://icanhazdadjoke.com/j/qjV8EIRfVnb|permalink> - <https://icanhazdadjoke.com|icanhazdadjoke.com>","text":"What did the shy pebble wish for? That she was a little boulder."}],"response_type":"in_channel","username":"icanhazdadjoke"}`;
-        $data = json_decode($jsonString);
-        echo $data;
+        $json_data = '{"attachments":[{"fallback":"What did the shy pebble wish for? That she was a little boulder.","footer":"<https://icanhazdadjoke.com/j/qjV8EIRfVnb|permalink> - <https://icanhazdadjoke.com|icanhazdadjoke.com>","text":"What did the shy pebble wish for? That she was a little boulder."}],"response_type":"in_channel","username":"icanhazdadjoke"}';
+        $data = json_decode($json_data);
+        // $attachments = json_decode($data->attachments);
+        // echo $attachments->text;
+        $att = $data->attachments[0];
+        return $att->text;
     }
 
+    public function getRecipe(){
+        $json_data = file_get_contents('https://api.punkapi.com/v2/beers');
+        $data = json_decode($json_data, true);
+        $rand = $data[array_rand($data)];
+        return $rand;
+    }
 
+    public function getGroups(){
+        $students = ["Ali", "Ahmad", "Omar", "Elie", "Nour", "Michel", "Pablo"];
+    }
 
     public function getNominee(){
         $students = ["Ali", "Ahmad", "Omar", "Elie", "Nour", "Michel", "Pablo"];

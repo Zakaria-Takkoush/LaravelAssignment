@@ -21,6 +21,8 @@ Route::get('/time', [MyController::class, 'getSeconds'])->name("get-Seconds");
 
 Route::get('/text', [MyController::class, 'getText'])->name("get-Text");
 
+Route::get('/recipe', [MyController::class, 'getRecipe'])->name("get-recipe");
+
 Route::get('/groups', [MyController::class, 'getGroups'])->name("get-Groups");
 
 Route::get('/nominee', [MyController::class, 'getNominee'])->name("get-Nominee");
