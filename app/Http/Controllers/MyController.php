@@ -13,7 +13,13 @@ class MyController extends Controller{
                 $counter++;
             }
         }
-        return $counter;
+        return $counter. " out of " .count($strings) ." are palindroms";
+    }
+
+    public function getSeconds(){
+        $time = strtotime('1732-04-14 00:00:00');
+        $time = time() - $time;
+        return "Seconds passed since 14 April 1732: " .$time ." seconds";
     }
 
 }

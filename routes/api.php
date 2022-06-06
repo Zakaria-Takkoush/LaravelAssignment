@@ -16,5 +16,5 @@ use App\Http\Controllers\MyController;
 */
 
 Route::get('/pal', [MyController::class, 'getPalindrom'])->name("get-Palindrom");
-
+Route::get('/time', [MyController::class, 'getSeconds'])->name("get-Seconds");
 
